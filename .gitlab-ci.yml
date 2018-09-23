@@ -3,6 +3,9 @@ pages:
   script:
   - yarn install
   - yarn build
+  # Custom domain HTTPS challenge
+  - mkdir -p public/.well-known/acme-challenge
+  - echo 'EWE_oBllkT9sy5dLV9E6foJ_72JE-Pm6L6gFGzfeSMQ.0F-RFg-PW3VfzMKJLdksPTLc2-0GKW2QnAaRCGrEvFQ' > public/.well-known/acme-challenge/EWE_oBllkT9sy5dLV9E6foJ_72JE-Pm6L6gFGzfeSMQ.0F-RFg-PW3VfzMKJLdksPTLc2-0GKW2QnAaRCGrEvFQ
   artifacts:
     paths:
     - public
