@@ -22,7 +22,7 @@ const Layout = ({ children }) => (
             {
               name: 'description',
               content:
-                "Développeur Full-Stack à Amiens. La conception de sites web et applications n'a pas de secret pour moi.",
+                "Développeur Full-Stack à Amiens. La conception des sites et applications web n'a pas de secret pour moi.",
             },
             {
               name: 'keywords',
