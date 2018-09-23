@@ -14,7 +14,7 @@ export default styled.div`
   .text {
     position: absolute;
     bottom: -5px;
-    left: calc(50vw);
+    left: calc(40vw);
     color: white;
     font-family: 'Lato';
     transform: skewY(8deg) rotate(-8deg);
@@ -62,14 +62,17 @@ export default styled.div`
       }
     }
 
-    @media (max-width: 800px) {
-      left: calc(90vw - 300px);
+    @media (max-width: 1000px) {
       bottom: 2px;
 
       .name {
         display: block;
         font-size: 34px;
       }
+    }
+
+    @media (max-width: 800px) {
+      left: calc(90vw - 300px);
     }
   }
 `

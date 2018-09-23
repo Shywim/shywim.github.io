@@ -1,12 +1,6 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
 
-const BarWrapper = styled.div`
-  transform: ${props => css`rotate(${props.rotate}deg)`};
-  transform-origin: left top;
-  z-index: ${props => props.pos};
-`
-
 const Bar = styled.div`
   --padding: ${props => css`calc(5px + (${props.fontSize}px * 0.5) - 10px)`};
   position: relative;
@@ -17,7 +11,8 @@ const Bar = styled.div`
     ${props => css`calc(-10px + ${props.width}px / 5)`};
   background-color: #0984e3;
   color: white;
-  font-family: 'Lato';
+  font-family: 'Lato', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 
   &:after {
     content: '';
@@ -31,6 +26,16 @@ const Bar = styled.div`
     z-index: -1;
     transform: ${props => css`rotate(calc(2deg + ${props.width}deg / 150))`};
     opacity: 0.9;
+  }
+`
+
+const BarWrapper = styled.div`
+  transform: ${props => css`rotate(${props.rotate}deg)`};
+  transform-origin: left top;
+  z-index: ${props => props.pos};
+
+  &:first-child ${Bar} {
+    padding-top: 14px;
   }
 `
 

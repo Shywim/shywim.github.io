@@ -4,10 +4,13 @@ import styled, { createGlobalStyle } from 'styled-components'
 import Bar from '../components/hello-bar'
 import TopBg from '../components/top-background'
 import Icon from '../components/icon'
+import Layout from '../components/layout'
 
+import sourceSansProRegular from '../fonts/SourceSansPro-Regular.woff2'
+import sourceSansProSemiBold from '../fonts/SourceSansPro-SemiBold.woff2'
+import latoRegular from '../fonts/Lato-Regular.woff2'
 import pepiteImg from '../images/pepite.jpg'
 import youcomImg from '../images/youcom.jpg'
-import Layout from '../components/layout'
 
 const SkewedBackground = styled.div`
   width: 100%;
@@ -227,7 +230,21 @@ const Contact = styled(SkewedBackground)`
 `
 
 const GlobalStyle = createGlobalStyle`
-  @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600');
+  @font-face {
+    font-family: 'Source Sans Pro';
+    font-weight: 400;
+    src: local('Source Sans Pro'), url(${sourceSansProRegular}) format('woff2');
+  }
+  @font-face {
+    font-family: 'Source Sans Pro';
+    font-weight: 600;
+    src: local('Source Sans Pro SemiBold'), url(${sourceSansProSemiBold}) format('woff2');
+  }
+  @font-face {
+    font-family: 'Lato';
+    font-weight: 400;
+    src: local('Lato'), url(${latoRegular}) format('woff2');
+  }
 
   :root {
     --colors-white: rgba(255, 255, 255, 0.9);
@@ -317,7 +334,7 @@ const Progress = styled.div`
 const BigLetter = styled.span`
   font-size: 140px;
 
-  @media (max-width: 800px) {
+  @media (max-width: 1000px) {
     font-size: inherit;
   }
 `
@@ -360,7 +377,12 @@ const IndexPage = () => (
       </div>
     </TopBg>
     <div
-      style={{ position: 'absolute', left: 0, top: 0, lineHeight: '1.45em' }}
+      style={{
+        position: 'absolute',
+        left: 0,
+        top: 0,
+        lineHeight: '1.45em',
+      }}
     >
       <Bar rotate={-10} pos={10} width={200} fontSize={24}>
         Hello !
@@ -484,7 +506,7 @@ const IndexPage = () => (
                 Wordpress
               </ExternalLink>
             </strong>{' '}
-            dans le cas de PHP
+            dans le cas de PHP.
           </Paragraph>
         </SkillsText>
         <Skills>
