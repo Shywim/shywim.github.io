@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
 import { Badge, BadgeList } from '../components/Badge'
 import { Card, CardBody } from '../components/Card'
+import Layout from '../components/layout'
 
 const data = {
   skills: {
@@ -157,169 +158,175 @@ const data = {
 }
 
 const ResumePage = () => (
-  <div className="resume">
-    <Card style={{ width: 'auto' }}>
-      <CardBody>
-        <div
-          style={{
-            display: 'flex',
-            flexDirection: 'row',
-            flexWrap: 'wrap',
-            justifyContent: 'center',
-          }}
-        >
-          <div style={{ flex: 1, maxWidth: 500 }}>
-            <h1>CV : Développeur Full Stack dans les Hauts-de-France</h1>
-            <h2>Matthieu Harlé</h2>
-            <p>Amiens, Valenciennes, Lille, Picardie, Nord-Pas-de-Calais</p>
-            <p>
-              <a href="mailto:bonjour@matthieuharle.com">
-                bonjour@matthieuharle.com
-              </a>
-            </p>
-          </div>
-          <div style={{ flex: 1, maxWidth: 500 }}>
-            <BadgeList>
-              <Badge
-                href="https://github.com/Shywim"
-                style={{ backgroundColor: '#e6e6e6' }}
-              >
-                <FontAwesomeIcon icon={faGithub} /> GitHub | Shywim
-              </Badge>
-              <Badge
-                href="https://gitlab.com/Shywim"
-                style={{ backgroundColor: '#fed9b7' }}
-              >
-                <FontAwesomeIcon icon={faGitlab} color="#E24329" /> GitLab |
-                Shywim
-              </Badge>
-            </BadgeList>
-            <p className="resume-abstract">
-              Mes expériences m'ont amené à évoluer dans une grande variété
-              d'environnements de travail. Mon expertise comprend le
-              développement, la maintenance d’application web et mobiles, que ça
-              soit le frontend ou le backend, ainsi que la mise en place
-              d’outils et de processus pour aider et faciliter le développement.
-            </p>
-          </div>
-        </div>
-      </CardBody>
-    </Card>
-
-    <div
-      style={{
-        display: 'flex',
-        flexDirection: 'row',
-        flexWrap: 'wrap',
-        justifyContent: 'center',
-      }}
-    >
-      <div className="resume-column">
-        <h2 className="resume-section-title">Expérience</h2>
-        {data.experience.map((experience, index) => (
-          <Card key={index}>
-            <CardBody>
-              <h3 className="resume-period">{experience.period}</h3>
-              <h4 className="resume-title">{experience.title}</h4>
-              <ul className="resume-key-points">
-                {experience.description.map((description, index) => (
-                  <li key={index}>{description}</li>
-                ))}
-              </ul>
-            </CardBody>
-            <div className="resume-waves">
-              <svg
-                height="100%"
-                width="100%"
-                preserveAspectRatio="none"
-                className="resume-wave"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 1440 320"
-              >
-                <path
-                  fill={experience.waves[0].color}
-                  fill-opacity="0.5"
-                  d={experience.waves[0].path}
-                ></path>
-              </svg>
-              <svg
-                height="100%"
-                width="100%"
-                preserveAspectRatio="none"
-                className="resume-wave"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 1440 320"
-              >
-                <path
-                  fill={experience.waves[1].color}
-                  fill-opacity="0.7"
-                  d={experience.waves[1].path}
-                ></path>
-              </svg>
+  <Layout>
+    <div className="resume">
+      <Card style={{ width: 'auto' }}>
+        <CardBody>
+          <div
+            style={{
+              display: 'flex',
+              flexDirection: 'row',
+              flexWrap: 'wrap',
+              justifyContent: 'center',
+            }}
+          >
+            <div style={{ flex: 1, maxWidth: 500 }}>
+              <h1>CV : Développeur Full Stack dans les Hauts-de-France</h1>
+              <h2>Matthieu Harlé</h2>
+              <p>Amiens, Valenciennes, Lille, Picardie, Nord-Pas-de-Calais</p>
+              <p>
+                <a href="mailto:bonjour@matthieuharle.com">
+                  bonjour@matthieuharle.com
+                </a>
+              </p>
             </div>
-          </Card>
-        ))}
-      </div>
-
-      <div className="resume-column">
-        <h2 className="resume-section-title">Compétences</h2>
-        <Card>
-          <CardBody>
-            <h3 className="resume-skill-title">Expertise</h3>
-            <BadgeList>
-              {data.skills.expert.map((skill, index) => (
-                <Badge style={{ backgroundColor: skill.color }} key={index}>
-                  {skill.label}
+            <div style={{ flex: 1, maxWidth: 500 }}>
+              <BadgeList>
+                <Badge
+                  href="https://github.com/Shywim"
+                  style={{ backgroundColor: '#e6e6e6' }}
+                >
+                  <FontAwesomeIcon icon={faGithub} /> GitHub | Shywim
                 </Badge>
-              ))}
-            </BadgeList>
-
-            <h3 className="resume-skill-title">Maitrise</h3>
-            <BadgeList>
-              {data.skills.master.map((skill, index) => (
-                <Badge style={{ backgroundColor: skill.color }} key={index}>
-                  {skill.label}
+                <Badge
+                  href="https://gitlab.com/Shywim"
+                  style={{ backgroundColor: '#fed9b7' }}
+                >
+                  <FontAwesomeIcon icon={faGitlab} color="#E24329" /> GitLab |
+                  Shywim
                 </Badge>
-              ))}
-            </BadgeList>
+              </BadgeList>
+              <p className="resume-abstract">
+                Mes expériences m'ont amené à évoluer dans une grande variété
+                d'environnements de travail. Mon expertise comprend le
+                développement, la maintenance d’application web et mobiles, que
+                ça soit le frontend ou le backend, ainsi que la mise en place
+                d’outils et de processus pour aider et faciliter le
+                développement.
+              </p>
+            </div>
+          </div>
+        </CardBody>
+      </Card>
 
-            <h3 className="resume-skill-title">fdsaf</h3>
-            <BadgeList>
-              {data.skills.jfdkd.map((skill, index) => (
-                <Badge style={{ backgroundColor: skill.color }} key={index}>
-                  {skill.label}
-                </Badge>
-              ))}
-            </BadgeList>
-          </CardBody>
-        </Card>
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'row',
+          flexWrap: 'wrap',
+          justifyContent: 'center',
+        }}
+      >
+        <div className="resume-column">
+          <h2 className="resume-section-title">Expérience</h2>
+          {data.experience.map((experience, index) => (
+            <Card key={index}>
+              <CardBody>
+                <h3 className="resume-period">{experience.period}</h3>
+                <h4 className="resume-title">{experience.title}</h4>
+                <ul className="resume-key-points">
+                  {experience.description.map((description, index) => (
+                    <li key={index}>{description}</li>
+                  ))}
+                </ul>
+              </CardBody>
+              <div className="resume-waves">
+                <svg
+                  height="100%"
+                  width="100%"
+                  preserveAspectRatio="none"
+                  className="resume-wave"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 1440 320"
+                >
+                  <path
+                    fill={experience.waves[0].color}
+                    fill-opacity="0.5"
+                    d={experience.waves[0].path}
+                  ></path>
+                </svg>
+                <svg
+                  height="100%"
+                  width="100%"
+                  preserveAspectRatio="none"
+                  className="resume-wave"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 1440 320"
+                >
+                  <path
+                    fill={experience.waves[1].color}
+                    fill-opacity="0.7"
+                    d={experience.waves[1].path}
+                  ></path>
+                </svg>
+              </div>
+            </Card>
+          ))}
+        </div>
 
-        <h2 className="resume-section-title">Centres d'intérêts</h2>
-        <Card>
-          <CardBody>
-            <BadgeList>
-              {data.interests.map((interest, index) => (
-                <Badge style={{ backgroundColor: interest.color }} key={index}>
-                  {interest.label}
-                </Badge>
-              ))}
-            </BadgeList>
-          </CardBody>
-        </Card>
-
-        <h2 className="resume-section-title">Formation</h2>
-        {data.education.map((experience, index) => (
-          <Card key={index}>
+        <div className="resume-column">
+          <h2 className="resume-section-title">Compétences</h2>
+          <Card>
             <CardBody>
-              <h3 className="resume-period">{experience.period}</h3>
-              <h4 className="resume-title">{experience.title}</h4>
-              <p className="resume-title">{experience.school}</p>
+              <h3 className="resume-skill-title">Expertise</h3>
+              <BadgeList>
+                {data.skills.expert.map((skill, index) => (
+                  <Badge style={{ backgroundColor: skill.color }} key={index}>
+                    {skill.label}
+                  </Badge>
+                ))}
+              </BadgeList>
+
+              <h3 className="resume-skill-title">Maitrise</h3>
+              <BadgeList>
+                {data.skills.master.map((skill, index) => (
+                  <Badge style={{ backgroundColor: skill.color }} key={index}>
+                    {skill.label}
+                  </Badge>
+                ))}
+              </BadgeList>
+
+              <h3 className="resume-skill-title">fdsaf</h3>
+              <BadgeList>
+                {data.skills.jfdkd.map((skill, index) => (
+                  <Badge style={{ backgroundColor: skill.color }} key={index}>
+                    {skill.label}
+                  </Badge>
+                ))}
+              </BadgeList>
             </CardBody>
           </Card>
-        ))}
+
+          <h2 className="resume-section-title">Centres d'intérêts</h2>
+          <Card>
+            <CardBody>
+              <BadgeList>
+                {data.interests.map((interest, index) => (
+                  <Badge
+                    style={{ backgroundColor: interest.color }}
+                    key={index}
+                  >
+                    {interest.label}
+                  </Badge>
+                ))}
+              </BadgeList>
+            </CardBody>
+          </Card>
+
+          <h2 className="resume-section-title">Formation</h2>
+          {data.education.map((experience, index) => (
+            <Card key={index}>
+              <CardBody>
+                <h3 className="resume-period">{experience.period}</h3>
+                <h4 className="resume-title">{experience.title}</h4>
+                <p className="resume-title">{experience.school}</p>
+              </CardBody>
+            </Card>
+          ))}
+        </div>
       </div>
     </div>
-  </div>
+  </Layout>
 )
 
 export default ResumePage
