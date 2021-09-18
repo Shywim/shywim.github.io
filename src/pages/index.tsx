@@ -1,5 +1,6 @@
 import { faGithub, faGitlab } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { Link } from 'gatsby'
 import * as React from 'react'
 import { Card, CardBody } from '../components/Card'
 import Layout from '../components/layout'
@@ -32,8 +33,7 @@ const IndexPage = () => {
             </a>
             <br />
             <br />
-            <i className="fas fa-lock"></i> PGP:{' '}
-            <a href="publickey.txt">2E78F5C00AB348B2</a>
+            <h3><Link to="/resume">Resume</Link></h3>
           </div>
         </CardBody>
       </Card>
