@@ -1,1 +1,5 @@
-.certs
+node_modules/
+.cache/
+public
+.certs/
+.vscode/

@@ -1,0 +1,218 @@
+@font-face {
+  font-family: 'IBM Plex Sans';
+  src: url('../assets/fonts/IBMPlexSans-Regular.woff2');
+}
+
+@font-face {
+  font-family: 'IBM Plex Sans';
+  font-weight: 600;
+  src: url('../assets/fonts/IBMPlexSans-Medium.woff2');
+}
+
+:root {
+  --color-bg: #eee;
+  --color-item-bg: #fff;
+  --color-fg: rgb(0, 0, 0);
+  --color-fg-lighter: rgba(0, 0, 0, 0.6);
+  --color-border: rgba(0, 0, 0, 0.3);
+  --color-highlight: hsl(25, 80%, 55%);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #181e24;
+    --color-item-bg: #1f2831;
+    --color-fg: hsl(210, 10%, 88%);
+    --color-fg-lighter: hsl(210, 10%, 72%);
+    --color-border: hsl(210, 10%, 48%);
+  }
+}
+
+* {
+  box-sizing: border-box;
+  transition-property: color background-color;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in;
+}
+
+body {
+  margin: 0;
+  padding: 24px;
+  background-color: var(--color-bg);
+  color: var(--color-fg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.card {
+  width: 500px;
+  background-color: var(--color-item-bg);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  overflow: hidden;
+}
+
+.card-body {
+  padding: 24px;
+}
+
+h1 {
+  font-size: 24px;
+  margin: 0 0 8px 0;
+  text-transform: uppercase;
+}
+
+h2 {
+  font-size: 22px;
+  font-weight: normal;
+  margin: 0;
+}
+
+h3 {
+  font-size: 16px;
+  margin: 0 0 16px 0;
+}
+
+h3:before,
+h3:after {
+  content: '-';
+  margin: 0 8px;
+  color: var(--color-border);
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.emojis {
+  font-size: 1.6vw;
+}
+
+.work,
+.contact {
+  padding: 2vw 0;
+  border-top: 1px solid var(--color-border);
+}
+
+.somewhere,
+.somewhere:visited {
+  font-size: 2.4vw;
+  margin: 0 0.5vw;
+  color: #666;
+}
+
+a,
+a:visited {
+  text-decoration: none;
+  transition: color 0.3s ease;
+  color: var(--color-highlight);
+}
+
+.github:hover {
+  color: #000;
+}
+
+.gitlab:hover {
+  color: #e34124;
+}
+
+.resume {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.resume-abstract {
+  text-align: justify;
+}
+
+.resume-column {
+  margin-left: 8px;
+  margin-right: 8px;
+}
+
+.resume-section-title {
+  font-size: 22px;
+}
+
+.resume-period {
+  font-weight: normal;
+  color: var(--color-fg-lighter);
+}
+
+.resume-title {
+  font-size: 18px;
+}
+
+.resume-key-points {
+  text-align: justify;
+}
+
+.resume-waves {
+  position: relative;
+  height: 60px;
+}
+
+.resume-wave {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.resume-skills {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: -8px;
+}
+
+.resume-skill,
+.resume-skill:visited {
+  display: inline-flex;
+  align-items: center;
+  margin-right: 8px;
+  background-color: rgba(0, 0, 0, 0.1);
+  padding-top: 2px;
+  padding-bottom: 2px;
+  padding-left: 4px;
+  padding-right: 4px;
+  border-radius: 4px;
+  color: rgb(0, 0, 0);
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.resume-skill .svg-inline--fa {
+  margin-right: 4px;
+}
+
+.resume-skill-title {
+  margin-top: 8px;
+  margin-bottom: 4px;
+  color: var(--color-fg-lighter);
+}
+
+@media (max-width: 800px) {
+  .card {
+    width: 100%;
+  }
+
+  .emojis {
+    font-size: 4vw;
+  }
+
+  .somewhere {
+    font-size: 7vw;
+    margin: 0 2vw;
+  }
+
+  .work,
+  .contact {
+    padding: 4vw 0;
+  }
+}
