@@ -20,7 +20,7 @@ const data = {
       { label: 'Java', color: '#ffccd5' },
       { label: 'Android', color: '#d8f3dc' },
     ],
-    jfdkd: [
+    familiar: [
       { label: 'Kotlin', color: '#fed9b7' },
       { label: 'Python', color: '#c7f9cc' },
       { label: 'Elixir', color: '#cbc0d3' },
@@ -286,9 +286,9 @@ const ResumePage = () => (
                 ))}
               </BadgeList>
 
-              <h3 className="resume-skill-title">fdsaf</h3>
+              <h3 className="resume-skill-title">Familié</h3>
               <BadgeList>
-                {data.skills.jfdkd.map((skill, index) => (
+                {data.skills.familiar.map((skill, index) => (
                   <Badge style={{ backgroundColor: skill.color }} key={index}>
                     {skill.label}
                   </Badge>
