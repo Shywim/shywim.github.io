@@ -33,7 +33,7 @@ const data = {
       title: 'Développeur Full Stack; DevOps; Gérant, YADA, Amiens',
       description: [
         "Formation de l'équipe sur les technologies utilisées",
-        "Création des projets et onboarding de l'équipe",
+        "Mise en place des projets et onboarding de l'équipe",
         "Gestion des serveurs de l'entreprise et mises en place des applications et outils pour l'équipe",
       ],
       tags: [
@@ -66,7 +66,7 @@ const data = {
       description: [
         'Création et mise en ligne de sites HTML et WordPress',
         'Suite du développement du CRM sur-mesure commencé en auto-entrepreneur',
-        'Intégration à des équipes de développement externes',
+        'Renfort pour une entreprise tierce sur le développement d\'une application de gestion d\'organisations autogérées (React+redux-saga)',
       ],
       tags: [
         'React',
@@ -92,7 +92,7 @@ const data = {
       period: '01/2016 à 01/2020',
       title: 'Développeur Full Stack, auto-entrepreneur, Amiens',
       description: [
-        "Développement d'applications Android natives",
+        "Développement d'applications Android natives + leur backend en PHP (Slim)",
         "Création d'un CRM sur-mesure avec React et Node.js & PostgreSQL pour le backend",
       ],
       tags: [
