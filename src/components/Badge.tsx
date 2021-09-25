@@ -19,7 +19,7 @@ export const Badge = ({
   const Tag = href ? 'a' : 'span'
 
   return (
-    <Tag className="resume-skill" style={style}>
+    <Tag className="resume-skill" style={style} href={href}>
       {children}
     </Tag>
   )
