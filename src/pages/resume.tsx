@@ -1,11 +1,14 @@
 import { faGithub, faGitlab } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { graphql } from 'gatsby'
+import { GatsbyImage } from 'gatsby-plugin-image'
 import React from 'react'
+import SimpleReactLightbox, { SRLWrapper } from 'simple-react-lightbox'
 import { Badge, BadgeList } from '../components/Badge'
 import { Card, CardBody } from '../components/Card'
 import Layout from '../components/layout'
 
-const data = {
+const resume = {
   skills: {
     expert: [
       { label: 'JavaScript/TypeScript', color: '#faedcb' },
@@ -66,7 +69,7 @@ const data = {
       description: [
         'Création et mise en ligne de sites HTML et WordPress',
         'Suite du développement du CRM sur-mesure commencé en auto-entrepreneur',
-        'Renfort pour une entreprise tierce sur le développement d\'une application de gestion d\'organisations autogérées (React+redux-saga)',
+        "Renfort pour une entreprise tierce sur le développement d'une application de gestion d'organisations autogérées (React+redux-saga)",
       ],
       tags: [
         'React',
@@ -155,9 +158,52 @@ const data = {
     { label: '🌱 Permaculture & Écologie', color: '#e9edc9' },
     { label: '🐷 Éthique Animale', color: '#f5ccab' },
   ],
+  projects: [
+    {
+      title: 'Voices of Aliénor',
+      period: '2021',
+      description: [
+        'Une application web permettant d\'organiser toutes les données liées à un jeu de rôle "papier" : fiches personnages, joueurs, monstres, cartes... Ainsi que d\'enregistrer des éléments de narration et de les jouer via un bot Discord pour les séances à distance.',
+        'Créée avec Laravel et Livewire, puis migrée vers API Platform.',
+      ],
+      tags: [
+        { label: 'React', color: '#caf0f8' },
+        { label: 'PHP', color: '#dfe7fd' },
+        { label: 'Go', color: '#caf0f8' },
+        { label: 'Docker', color: '#bbdefb' },
+      ],
+      pictures: 'alienor',
+    },
+    {
+      title: 'PokéScan',
+      period: '2016',
+      description: [
+        "PokéScan était une application Android permettant d'avoir de meilleures indications sur la position des Pokémons environnant dans Pokémon Go, le radar inclu à la sortie du jeu étant très limité.",
+        "L'utilisateur pouvait recevoir des notifications si des pokémons étaient à promixité de lui, selon sa préférence de distance. Il pouvait aussi afficher une carte par dessus le jeu, à l'aide d'une bulle à la Facebook Messenger.",
+      ],
+      tags: [
+        { label: 'Android', color: '#d8f3dc' },
+        { label: 'PHP', color: '#dfe7fd' },
+      ],
+      pictures: 'pokescan',
+    },
+    {
+      title: 'La Boite à Antoine Daniel',
+      period: '2014 à 2016',
+      description: [
+        'Une application Android regroupant environ 500 extraits sonores des vidéos du vidéaste Antoine Daniel.',
+        "C'est en développant cette application que j'ai le plus progressé. J'ai appris et mis en oeuvre beaucoup de patterns classiques de programmation, ainsi qu'explorer le code source d'Android. C'est aussi ma première fois avec les APIs REST, les sons étant téléchargés à part de l'application pour pouvoir plus facilement les mettre à jour et indépendamment, ainsi que réduire la taille de l'application elle-même.",
+      ],
+      tags: [
+        { label: 'Android', color: '#d8f3dc' },
+        { label: 'PHP', color: '#dfe7fd' },
+      ],
+      pictures: 'bad',
+    },
+  ],
 }
 
-const ResumePage = () => (
+const ResumePage = ({ data }) => (
   <Layout>
     <div className="resume">
       <Card style={{ width: 'auto' }}>
@@ -219,7 +265,7 @@ const ResumePage = () => (
       >
         <div className="resume-column">
           <h2 className="resume-section-title">Expérience</h2>
-          {data.experience.map((experience, index) => (
+          {resume.experience.map((experience, index) => (
             <Card key={index}>
               <CardBody>
                 <h3 className="resume-period">{experience.period}</h3>
@@ -270,7 +316,7 @@ const ResumePage = () => (
             <CardBody>
               <h3 className="resume-skill-title">Expertise</h3>
               <BadgeList>
-                {data.skills.expert.map((skill, index) => (
+                {resume.skills.expert.map((skill, index) => (
                   <Badge style={{ backgroundColor: skill.color }} key={index}>
                     {skill.label}
                   </Badge>
@@ -279,7 +325,7 @@ const ResumePage = () => (
 
               <h3 className="resume-skill-title">Maitrise</h3>
               <BadgeList>
-                {data.skills.master.map((skill, index) => (
+                {resume.skills.master.map((skill, index) => (
                   <Badge style={{ backgroundColor: skill.color }} key={index}>
                     {skill.label}
                   </Badge>
@@ -288,7 +334,7 @@ const ResumePage = () => (
 
               <h3 className="resume-skill-title">Familié</h3>
               <BadgeList>
-                {data.skills.familiar.map((skill, index) => (
+                {resume.skills.familiar.map((skill, index) => (
                   <Badge style={{ backgroundColor: skill.color }} key={index}>
                     {skill.label}
                   </Badge>
@@ -301,7 +347,7 @@ const ResumePage = () => (
           <Card>
             <CardBody>
               <BadgeList>
-                {data.interests.map((interest, index) => (
+                {resume.interests.map((interest, index) => (
                   <Badge
                     style={{ backgroundColor: interest.color }}
                     key={index}
@@ -314,7 +360,7 @@ const ResumePage = () => (
           </Card>
 
           <h2 className="resume-section-title">Formation</h2>
-          {data.education.map((experience, index) => (
+          {resume.education.map((experience, index) => (
             <Card key={index}>
               <CardBody>
                 <h3 className="resume-period">{experience.period}</h3>
@@ -323,10 +369,80 @@ const ResumePage = () => (
               </CardBody>
             </Card>
           ))}
+
+          <div id="projects">
+            <h2 className="resume-section-title">Projets</h2>
+            {resume.projects.map((project, index) => (
+              <SimpleReactLightbox>
+                <SRLWrapper options={{
+                  buttons: {
+                    showAutoplayButton: false,
+                    showDownloadButton: false,
+                  },
+                  caption: {
+                    showCaption: false
+                  },
+                }}>
+                  <Card key={index}>
+                    <CardBody>
+                      <h3 className="resume-period">{project.period}</h3>
+                      <h4 className="resume-title">{project.title}</h4>
+                      <BadgeList>
+                        {project.tags.map((tag, index) => (
+                          <Badge
+                            style={{ backgroundColor: tag.color }}
+                            key={index}
+                          >
+                            {tag.label}
+                          </Badge>
+                        ))}
+                      </BadgeList>
+                      {project.description.map((d) => (
+                        <p style={{ textAlign: 'justify' }}>{d}</p>
+                      ))}
+                      {data.allFile.nodes
+                        .filter(
+                          (file) => project.pictures === file.sourceInstanceName
+                        )
+                        .sort((file) => file.name)
+                        .map((file) => (
+                          <a href={file.publicURL}>
+                            <GatsbyImage
+                              image={file.childImageSharp.gatsbyImageData}
+                              alt={file.name}
+                              style={{
+                                width: 150,
+                                height: 150,
+                                objectFit: 'cover',
+                              }}
+                            />
+                          </a>
+                        ))}
+                    </CardBody>
+                  </Card>
+                </SRLWrapper>
+              </SimpleReactLightbox>
+            ))}
+          </div>
         </div>
       </div>
     </div>
   </Layout>
 )
+
+export const pageQuery = graphql`
+  query {
+    allFile(sort: { fields: name, order: ASC }) {
+      nodes {
+        name
+        sourceInstanceName
+        publicURL
+        childImageSharp {
+          gatsbyImageData(placeholder: BLURRED)
+        }
+      }
+    }
+  }
+`
 
 export default ResumePage

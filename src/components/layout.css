@@ -242,4 +242,8 @@ a:visited {
   .resume-skill {
     color-adjust: exact;
   }
+
+  #projects {
+    display: none;
+  }
 }
