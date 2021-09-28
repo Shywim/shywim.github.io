@@ -28,7 +28,17 @@ export const Badge = ({
       className="resume-skill"
       style={style}
       href={href}
-      onClick={() => goal ?? window.plausible(goal)}
+      onClick={(e) => {
+        if (href != null) {
+          setTimeout(() => {
+            location.href = href
+          }, 150)
+          e.preventDefault()
+        }
+        if (goal != null) {
+          window.plausible(goal)
+        }
+      }}
     >
       {children}
     </Tag>
