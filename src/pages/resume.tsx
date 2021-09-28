@@ -289,7 +289,7 @@ const ResumePage = ({ data }) => (
                 >
                   <path
                     fill={experience.waves[0].color}
-                    fill-opacity="0.5"
+                    fillOpacity="0.5"
                     d={experience.waves[0].path}
                   ></path>
                 </svg>
@@ -303,7 +303,7 @@ const ResumePage = ({ data }) => (
                 >
                   <path
                     fill={experience.waves[1].color}
-                    fill-opacity="0.7"
+                    fillOpacity="0.7"
                     d={experience.waves[1].path}
                   ></path>
                 </svg>
@@ -375,7 +375,7 @@ const ResumePage = ({ data }) => (
           <div id="projects">
             <h2 className="resume-section-title">Projets</h2>
             {resume.projects.map((project, index) => (
-              <SimpleReactLightbox>
+              <SimpleReactLightbox key={index}>
                 <SRLWrapper
                   options={{
                     buttons: {
@@ -392,7 +392,7 @@ const ResumePage = ({ data }) => (
                     },
                   }}
                 >
-                  <Card key={index}>
+                  <Card>
                     <CardBody>
                       <h3 className="resume-period">{project.period}</h3>
                       <h4 className="resume-title">{project.title}</h4>
@@ -406,8 +406,10 @@ const ResumePage = ({ data }) => (
                           </Badge>
                         ))}
                       </BadgeList>
-                      {project.description.map((d) => (
-                        <p style={{ textAlign: 'justify' }}>{d}</p>
+                      {project.description.map((d, index) => (
+                        <p key={index} style={{ textAlign: 'justify' }}>
+                          {d}
+                        </p>
                       ))}
                       {data.allFile.nodes
                         .filter(
@@ -415,7 +417,7 @@ const ResumePage = ({ data }) => (
                         )
                         .sort((file) => file.name)
                         .map((file) => (
-                          <a href={file.publicURL}>
+                          <a key={file.name} href={file.publicURL}>
                             <GatsbyImage
                               image={file.childImageSharp.gatsbyImageData}
                               alt={file.name}
