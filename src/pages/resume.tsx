@@ -231,12 +231,14 @@ const ResumePage = ({ data }) => (
                 <Badge
                   href="https://github.com/Shywim"
                   style={{ backgroundColor: '#e6e6e6' }}
+                  goal="github"
                 >
                   <FontAwesomeIcon icon={faGithub} /> GitHub | Shywim
                 </Badge>
                 <Badge
                   href="https://gitlab.com/Shywim"
                   style={{ backgroundColor: '#fed9b7' }}
+                  goal="gitlab"
                 >
                   <FontAwesomeIcon icon={faGitlab} color="#E24329" /> GitLab |
                   Shywim
@@ -374,15 +376,22 @@ const ResumePage = ({ data }) => (
             <h2 className="resume-section-title">Projets</h2>
             {resume.projects.map((project, index) => (
               <SimpleReactLightbox>
-                <SRLWrapper options={{
-                  buttons: {
-                    showAutoplayButton: false,
-                    showDownloadButton: false,
-                  },
-                  caption: {
-                    showCaption: false
-                  },
-                }}>
+                <SRLWrapper
+                  options={{
+                    buttons: {
+                      showAutoplayButton: false,
+                      showDownloadButton: false,
+                    },
+                    caption: {
+                      showCaption: false,
+                    },
+                  }}
+                  callbacks={{
+                    onSlideChange: () => {
+                      window.plausible('project-screen-view')
+                    },
+                  }}
+                >
                   <Card key={index}>
                     <CardBody>
                       <h3 className="resume-period">{project.period}</h3>

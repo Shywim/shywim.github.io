@@ -14,12 +14,22 @@ export const BadgeList = ({
 export const Badge = ({
   style,
   href,
+  goal,
   children,
-}: React.PropsWithChildren<{ style?: CSSProperties; href?: string }>) => {
+}: React.PropsWithChildren<{
+  style?: CSSProperties
+  href?: string
+  goal?: string
+}>) => {
   const Tag = href ? 'a' : 'span'
 
   return (
-    <Tag className="resume-skill" style={style} href={href}>
+    <Tag
+      className="resume-skill"
+      style={style}
+      href={href}
+      onClick={() => goal ?? window.plausible(goal)}
+    >
       {children}
     </Tag>
   )
