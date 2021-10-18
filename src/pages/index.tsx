@@ -23,8 +23,9 @@ const IndexPage = () => {
               className="somewhere github"
               href="https://github.com/Shywim"
               onClick={(e) => {
+                const href = e.currentTarget.href
                 setTimeout(() => {
-                  location.href = e.currentTarget.href
+                  location.href = href
                 }, 150)
                 e.preventDefault()
                 window.plausible('github')
@@ -36,8 +37,9 @@ const IndexPage = () => {
               className="somewhere gitlab"
               href="https://gitlab.com/Shywim"
               onClick={(e) => {
+                const href = e.currentTarget.href
                 setTimeout(() => {
-                  location.href = e.currentTarget.href
+                  location.href = href
                 }, 150)
                 e.preventDefault()
                 window.plausible('gitlab')
@@ -51,8 +53,9 @@ const IndexPage = () => {
             <a
               href="mailto:contact@matthieuharle.com"
               onClick={(e) => {
+                const href = e.currentTarget.href
                 setTimeout(() => {
-                  location.href = e.currentTarget.href
+                  location.href = href
                 }, 150)
                 e.preventDefault()
                 window.plausible('email')
