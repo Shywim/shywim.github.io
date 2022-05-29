@@ -1,0 +1,193 @@
+:root {
+  --color-bg: #eee;
+  --color-item-bg: #fff;
+  --color-fg: #000;
+  --color-fg-lighter: rgba(0,0,0,0.6);
+  --color-border: rgba(0,0,0,0.3);
+  --color-highlight: hsl(25, 80%, 55%);
+
+  --color-tilleuls: rgb(238, 67, 34);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #181e24;
+    --color-item-bg: #1f2831;
+    --color-fg: hsl(210, 10%, 88%);
+    --color-fg-lighter: hsl(210, 10%, 72%);
+    --color-border: hsl(210, 10%, 48%);
+  }
+}
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+  transition-property: color background-color;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in;
+}
+
+html, body {
+  display: flex;
+  min-height: 100vh;
+  width: 100vw;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  background-color: var(--color-bg);
+  color: var(--color-fg);
+  font-size: 16px;
+}
+
+main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card {
+  background-color: var(--color-item-bg);
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,.2);
+  margin-bottom: 16px;
+  overflow: hidden;
+  text-align: center;
+  width: 500px;
+}
+
+.card-body {
+  padding: 24px;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin: 0 0 1rem 0;
+}
+
+h2 {
+  font-size: 1.5rem;
+  font-weight: normal;
+  margin: 0;
+}
+
+h3 {
+  font-size: 1.375rem;
+  margin: 0.5rem 0 1rem 0;
+}
+
+h3:before,
+h3:after {
+  content: '-';
+  margin: 0 0.5rem;
+  color: var(--color-border);
+  font-size: 1em;
+  font-weight: 400;
+}
+
+.card hr {
+  color: var(--color-border);
+}
+
+a,
+a:visited {
+  text-decoration: none;
+  transition: color 0.3s ease;
+  color: var(--color-highlight);
+}
+
+.somewhere,
+.somewhere:visited {
+  color: #666;
+}
+
+.somewhere img,
+.somewhere:visited img {
+  filter: invert(43%) sepia(19%) saturate(0%) hue-rotate(232deg) brightness(90%) contrast(106%);
+}
+
+@media (max-width: 800px) {
+  .card {
+    width: 100%;
+  }
+
+  .emojis {
+    font-size: 4rem;
+  }
+}
+
+/* --- */
+
+.me {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+}
+
+.emojis {
+  font-size: 2rem;
+  margin: 1rem 0;
+}
+
+.github:hover {
+  color: #000;
+}
+.github:hover img {
+  filter: unset;
+}
+
+.gitlab:hover {
+  color: #e34124;
+}
+.gitlab:hover img {
+  filter: invert(29%) sepia(86%) saturate(1817%) hue-rotate(348deg) brightness(93%) contrast(92%);
+}
+
+.twitter:hover {
+  color: #1DA1F2;
+}
+.twitter:hover img {
+  filter: invert(53%) sepia(11%) saturate(4988%) hue-rotate(168deg) brightness(98%) contrast(94%);
+}
+
+@media (hover: none) {
+  .github {
+    color: #000;
+  }
+  .github img {
+    filter: unset;
+  }
+  
+  .gitlab {
+    color: #e34124;
+  }
+  .gitlab img {
+    filter: invert(29%) sepia(86%) saturate(1817%) hue-rotate(348deg) brightness(93%) contrast(92%);
+  }
+  
+  .twitter {
+    color: #1DA1F2;
+  }
+  .twitter img {
+    filter: invert(53%) sepia(11%) saturate(4988%) hue-rotate(168deg) brightness(98%) contrast(94%);
+  }
+}
+
+.tilleuls, .tilleuls:visited {
+  color: var(--color-tilleuls);
+}
+
+.find-me-icons {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  justify-content: center;
+  margin: 0 0 1rem 0;
+}
+
+.find-me-icons > * {
+  width: 2rem;
+  height: 2rem;
+}
