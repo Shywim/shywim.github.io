@@ -2,3 +2,4 @@
 public
 .certs/
 .vscode/
+.DS_Store

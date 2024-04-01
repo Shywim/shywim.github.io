@@ -2,11 +2,12 @@
   --color-bg: #eee;
   --color-item-bg: #fff;
   --color-fg: #000;
-  --color-fg-lighter: rgba(0,0,0,0.6);
-  --color-border: rgba(0,0,0,0.3);
+  --color-fg-lighter: rgba(0, 0, 0, 0.6);
+  --color-border: rgba(0, 0, 0, 0.3);
   --color-highlight: hsl(25, 80%, 55%);
 
   --color-tilleuls: rgb(238, 67, 34);
+  --color-lafourche: #ec634a;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -27,14 +28,16 @@
   transition-timing-function: ease-in;
 }
 
-html, body {
+html,
+body {
   display: flex;
   min-height: 100vh;
   width: 100vw;
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   background-color: var(--color-bg);
   color: var(--color-fg);
   font-size: 16px;
@@ -50,7 +53,7 @@ main {
 .card {
   background-color: var(--color-item-bg);
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0,0,0,.2);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   margin-bottom: 16px;
   overflow: hidden;
   text-align: center;
@@ -58,7 +61,7 @@ main {
 }
 
 .card-body {
-  padding: 24px;
+  padding: 40px 24px;
 }
 
 h1 {
@@ -79,7 +82,7 @@ h3 {
 
 h3:before,
 h3:after {
-  content: '-';
+  content: "-";
   margin: 0 0.5rem;
   color: var(--color-border);
   font-size: 1em;
@@ -104,7 +107,8 @@ a:visited {
 
 .somewhere img,
 .somewhere:visited img {
-  filter: invert(43%) sepia(19%) saturate(0%) hue-rotate(232deg) brightness(90%) contrast(106%);
+  filter: invert(43%) sepia(19%) saturate(0%) hue-rotate(232deg) brightness(90%)
+    contrast(106%);
 }
 
 @media (max-width: 800px) {
@@ -142,14 +146,16 @@ a:visited {
   color: #e34124;
 }
 .gitlab:hover img {
-  filter: invert(29%) sepia(86%) saturate(1817%) hue-rotate(348deg) brightness(93%) contrast(92%);
+  filter: invert(29%) sepia(86%) saturate(1817%) hue-rotate(348deg)
+    brightness(93%) contrast(92%);
 }
 
 .twitter:hover {
-  color: #1DA1F2;
+  color: #1da1f2;
 }
 .twitter:hover img {
-  filter: invert(53%) sepia(11%) saturate(4988%) hue-rotate(168deg) brightness(98%) contrast(94%);
+  filter: invert(53%) sepia(11%) saturate(4988%) hue-rotate(168deg)
+    brightness(98%) contrast(94%);
 }
 
 @media (hover: none) {
@@ -159,24 +165,38 @@ a:visited {
   .github img {
     filter: unset;
   }
-  
+
   .gitlab {
     color: #e34124;
   }
   .gitlab img {
-    filter: invert(29%) sepia(86%) saturate(1817%) hue-rotate(348deg) brightness(93%) contrast(92%);
+    filter: invert(29%) sepia(86%) saturate(1817%) hue-rotate(348deg)
+      brightness(93%) contrast(92%);
   }
-  
+
   .twitter {
-    color: #1DA1F2;
+    color: #1da1f2;
   }
   .twitter img {
-    filter: invert(53%) sepia(11%) saturate(4988%) hue-rotate(168deg) brightness(98%) contrast(94%);
+    filter: invert(53%) sepia(11%) saturate(4988%) hue-rotate(168deg)
+      brightness(98%) contrast(94%);
   }
 }
 
-.tilleuls, .tilleuls:visited {
+.tilleuls,
+.tilleuls:visited {
   color: var(--color-tilleuls);
+}
+
+.lafourche,
+.lafourche:visited {
+  color: var(--color-lafourche);
+}
+
+.inline-icon {
+  width: 2rem;
+  height: 2rem;
+  vertical-align: middle;
 }
 
 .find-me-icons {
@@ -190,4 +210,25 @@ a:visited {
 .find-me-icons > * {
   width: 2rem;
   height: 2rem;
+}
+
+.previously {
+  list-style: none;
+  padding: 0;
+}
+
+@media (max-width: 800px) {
+  .card {
+    width: 100%;
+    height: 100%;
+    box-shadow: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0;
+  }
+
+  .card-body {
+    padding: 16px;
+  }
 }
